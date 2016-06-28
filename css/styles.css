@@ -1,0 +1,30 @@
+
+.border {
+ 	border:solid 2px grey;
+}
+.margin{
+	margin-top: 80px;
+    margin-left: 210px;
+}
+.jumbotron{
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	background: rgba(16, 23, 27, 0.91);
+	color: white;
+
+}
+.margin2{
+	margin-top: 20px;
+	margin-left: 94px;
+}
+h1{
+	font-family: Georgia;
+}
+.panel{
+	border: 1px solid;
+}
+.panel > .panel-heading {
+
+	background: rgba(16, 23, 27, 0.91);
+	color: #fff;
+}

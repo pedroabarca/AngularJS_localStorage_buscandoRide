@@ -1,30 +1,46 @@
 
-.border {
- 	border:solid 2px grey;
+body{
+	background-image: url("../image/carpool_NY.png");
+	 background-size: cover;
+	background-attachment: fixed;
 }
+.jumbotron{
+	margin-top: 30px;
+}
+
 .margin{
 	margin-top: 80px;
     margin-left: 210px;
 }
-.jumbotron{
-	margin-bottom: 0px;
-	padding-bottom: 0px;
-	background: rgba(16, 23, 27, 0.91);
-	color: white;
 
-}
 .margin2{
 	margin-top: 20px;
 	margin-left: 94px;
+}
+.jumbotron{
+	background-attachment: fixed;
 }
 h1{
 	font-family: Georgia;
 }
 .panel{
 	border: 1px solid;
+	margin-bottom: 100px;
 }
 .panel > .panel-heading {
 
-	background: rgba(16, 23, 27, 0.91);
+	background: #494949;
 	color: #fff;
+}
+.table-bordered{
+
+	border: 1px solid;
+}
+.table thead th{
+	background: #494949;
+	color: white;
+}
+
+.text-brown{
+	color: #e07b79;
 }

@@ -8,43 +8,77 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body >
-     <section class="jumbotron">
-     	<div class="container">
-     	 	<div class="row">
-               <h2 class="col-md-12 "> Bienvenido a <i>BuscandoRide.com</i></h2>
-             
-          	</div>
 
-          	<div class="row pull-right">
-               <button type="button" class="col-md-12 btn btn-link">Registro</button>
-          	</div>
-        </div>
-     </section>
+     <header class="container-fluid jumbotron">
+     	<section class="row">
+     		<div class="col-md-12 ">
+             	<div class="text-center text-danger">
+                	<h1>Bienvenido a <i>BuscandoRide.com</i></h1>
+     			</div>
+     			<div class="pull-right">
+     				<button type="button" class="col-md-12 btn btn-link pull-right ">REGISTRO</button>	
+     			</div>
+     	</section>
+     </header>
 
      <section class="main container">
+
      	<div class="panel margin" style="width:700px; height: 150px;">
           <div class="panel-heading">¿Buscando un Ride?  <small class="text-danger">Probá Suerte!</small></div>
                <div class="panel-body">
                     <form action="" class="form-inline margin2" name="formulario">
                          <div class="form-group has-success">
                               <label for="salida" class="sr-only">salida</label>
-                              <input type="text" id="salida" placeholder=" salida" class="form-control" name="salida">
+                              <input id="salida" type="text" id="salida" placeholder=" salida" class="form-control" name="salida">
                          </div>
                          <div class="form-group has-warning">
                               <label for="destino" class="sr-only">destino</label>
-                              <input type="text" id="destino" placeholder="destino" class="form-control" name="destino">    
+                              <input id="destino" type="text" id="destino" placeholder="destino" class="form-control" name="destino">    
                          </div> 
-                         <button type="submit" class="btn btn-primary">
+                         <button id="add" type="button" class="btn btn-danger"">
                          	<span class="glyphicon glyphicon-search"></span>
                          </button>
                     </form>
-           
-               </div>
-    	</div>    
+           		</div>
+    	</div> 
+    	<div class="container-fluid">
+    		 <table class="table table-striped text-brown ">
+		     	<thead>
+				    <tr>
+				      <th>Usuario</th>
+				      <th>Salida</th>
+				      <th>Destino</th>
+				      <th>Vista</th>
+
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <td>Mark</td>
+				      <td id="salida1"></td>
+				      <td id="destinos"></td>
+				      <td id="ver"></td>
+				    </tr>
+				    <tr>
+				      <td>Jacob</td>
+				      <td id="salida2"></td>
+				      <td id="destinos"></td>
+				      <td id="ver"></td>
+				    </tr>
+				    <tr>
+				      <td>Larry</td>
+				      <td id="salida3"></td>
+				      <td id="destinos"></td>
+				      <td id="ver"></td>
+				    </tr>
+				  </tbody>
+</table>
+    		
+    	</div> 
+
 	</section> 
 
     <script src="js/script.js"></script>
-    <script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+ 
 </body>
 </html>

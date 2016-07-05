@@ -15,7 +15,3 @@ var saludo = function(){
 };
 document.getElementById("add").addEventListener("click", saludo);
 
-$('#myTabs a').click(function (e) {
-    e.preventDefault()
-    $(this).tab('show')
-});

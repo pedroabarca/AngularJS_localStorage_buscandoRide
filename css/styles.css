@@ -44,3 +44,17 @@ body{
 .navbar-right{
 margin-right: 200px;
 }
+#tablew{
+	border: 1px solid grey;
+}
+.go-gray{
+background-color: #494949;
+color: white;
+}
+hr{
+	color: #f00;
+background-color: black;
+height: 2px;
+margin-top: 50px;
+margin-bottom: 50px;
+}

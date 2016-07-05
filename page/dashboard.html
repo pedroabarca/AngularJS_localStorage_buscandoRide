@@ -25,90 +25,216 @@
 		</div>
 	</nav>
 	<!--contenedor principal-->
-	<section class="main container">
-        <!--panel contenedor de los taps: cuenta, rides, configuración-->
+	<section class="main container-fluid">
+		<!--panel contenedor de los taps: cuenta, rides, configuración-->
 		<div class="container panel">
-			
+			<nav class="row">
 				<!-- Nav tabs: cuenta, rides, config -->
-				<ul class="nav nav-pills nav-justified" role="tablist">
-					<li role="presentation" class="active"><a href="#home" role="tab" data-toggle="tab">Mi cuenta</a></li>
-					<li role="presentation"><a href="#profile" role="tab" data-toggle="tab">Rides</a></li>
-					<li role="presentation"><a href="#configuracion" role="tab" data-toggle="tab">Configuración</a></li>
-			    </ul>
-				<!--Migajas de pan-->
-			    <div role="tab-panel" class="tab-panel" id="migas">
-
-						<ol class="breadcrumb pull-right" style="margin-bottom: 5px;">
-							<li><a href="#">Mi cuenta</a></li>
-							<li><a href="#">Rides</a></li>
-							<li class="active">Editar </li>
+				<div class="col-md-8">
+					<ul class="nav nav-pills nav-justified" role="tablist">
+						<li role="presentation" class="active"><a href="#cuenta" role="tab" data-toggle="tab">Mi cuenta</a></li>
+						<li role="presentation"><a href="#rides" role="tab" data-toggle="tab">Rides</a></li>
+						<li role="presentation"><a href="#configuracion" role="tab" data-toggle="tab">Configuración</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4 text-right">
+					<a href="#" class="btn btn-lg disabled">Bienvenido <span id="user">Usuario </span><img src="../image/profile.ico"></a>
+				</div>
+			</nav>
+			<!-- Cont de los tabs-pane -->
+			<div class="tab-content">
+                 <!-- Mi cuenta-->
+				<div role="tab-pane" class="tab-pane active" id="cuenta">
+					<h3> Mi Cuenta</h3>
+					<!--Migajas de pan-->
+					<div class="tab-panel" id="migas">
+						<ol class="breadcrumb">
+							<li class="active">Mi cuenta</li>
+							<li><a>...</a></li>
 						</ol>
+					</div>
+					<h4>Mis Rides</h4>
+					<!--lista de rides-->
+					<div class="well">
+						<div class="row">
+							<div class="col-md-6"><h6>Lista de tus Rides actuales</h6></div>
+							<div class="col-md-6 text-right"><a class="btn-sm go-gray" href="#">+</a></div>
+						</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Nombre</th>
+									<th>Salida</th>
+									<th>Destino</th>
+									<th>Acciones</th>
+
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Brete</td>
+									<td>Sucre</td>
+									<td>Ciudad Quesada</td>
+									<td> <a class="btn btn-success"> Editar</a> <a class="btn btn-danger"> Borrar</a></td>
+
+								</tr>
+								<tr>
+									<td>Casa</td>
+									<td>Ciudad Quesada</td>
+									<td>Sucre</td>
+									<td> <a class="btn btn-success"> Editar</a> <a class="btn btn-danger"> Borrar</a></td>
+
+								</tr>
+								<tr>
+									<td>Oficina</td>
+									<td>Cartago</td>
+									<td>San Jose</td>
+									<td> <a class="btn btn-success"> Editar</a> <a class="btn btn-danger"> Borrar</a></td>
+
+								</tr>
+							</tbody>
+						</table>
+						<div class="text-right"><a class="btn-sm go-gray" href="#">+</a></div>
+
+					</div>
 				</div>
-			    	<!-- Cont del tab -->
-					<div class="tab-content">
-						<div role="tab-pane" class="tab-pane active" id="home">
+                 <!--rides-->
+				<div role="tab-pane" class="tab-pane" id="rides">
 
-							<h1> Dashboard</h1>
-
-							<div class="table-responsive">
-								<table class="table">
-									<thead>
-										<tr>
-											<th>Nombre</th>
-											<th>Salida</th>
-											<th>Destino</th>
-											<th>Acciones</th>
-
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Brete</td>
-											<td>Sucre</td>
-											<td>Ciudad Quesada</td>
-											<td> <a class="btn btn-success"> Editar</a> <a class="btn btn-danger"> Borrar</a></td>
-
-										</tr>
-										<tr>
-											<td>Casa</td>
-											<td>Ciudad Quesada</td>
-											<td>Sucre</td>
-											<td> <a class="btn btn-success"> Editar</a> <a class="btn btn-danger"> Borrar</a></td>
-
-										</tr>
-										<tr>
-											<td>Oficina</td>
-											<td>Cartago</td>
-											<td>San Jose</td>
-											<td> <a class="btn btn-success"> Editar</a> <a class="btn btn-danger"> Borrar</a></td>
-
-										</tr>
-									</tbody>
-								</table>
+					<h3> Rides</h3>
+					<!--Migajas de pan-->
+					<div class="tab-panel" id="migas">
+						<ol class="breadcrumb">
+							<li><a href="#">Mi Cuenta</a></li>
+							<li><a href="#">Rides</a></li>
+							<li class="active">Nuevo Ride</li>
+						</ol>
+					</div>
+					
+					<!--Panel-->
+					<div class="well">
+					    <!--form-->
+						<form class="form" role="form">
+							<div class="row">
+								<div class="form-group col-md-4">
+									<label for="email">Nombre del Ride:</label>
+   								 	<input type="email" class="form-control" id="email">
+								</div>
 							</div>
+							<div class="row">
+								<div class="form-group col-md-4">
+									<label for="email">Salida:</label>
+   								 	<input type="email" class="form-control" id="email">
+								</div>
+								<div class="col-md-2">
+									<br>
+									<a href="#" class="btn">vista</a>
+								</div>
+								<div class="form-group col-md-4">
+									<label for="email">Destino:</label>
+   								 	<input type="email" class="form-control" id="email">
+								</div>
+								<div class="col-md-2">
+									<br>
+									<a href="#" class="btn">vista</a>
+								</div>
+							</div>
+							<div class="row">
+								<div class="from-group col-md-12">
+									<label for="comment">Descripción:</label>
+  									<textarea class="form-control" rows="5" id="comment"></textarea>
+								</div>
+							</div>
+							<hr>
+							<h3>Cuando?</h3>
+							<div class="row">
+								<div class="col-md-2"></div>
+								<div class="col-md-3">
+									<div class="from-group">
+										<label for="email">Hora de Salida:</label>
+   								 		<input type="email" class="form-control" id="email">
+									</div>
+									<div class="from-group">
+										<label for="email">Hora estimada de llegada:</label>
+   								 		<input type="email" class="form-control" id="email">
+									</div>
+								</div>
+								<div class="col-md-2"></div>
+									<div class="checkbox col-md-3">
+										<h4>Seleción de Días:</h4>
+										<div class="from-group ">
+										<label><input type="checkbox" value="">Lunes</label>
+										</div>
+										<div class="from-group ">
+										<label><input type="checkbox" value="">Martes</label>
+										</div>
+										<div class="from-group ">
+										<label><input type="checkbox" value="">Miércoles</label>
+										</div>
+										<div class="from-group ">
+										<label><input type="checkbox" value="">Jueves</label>
+										</div><div class="from-group ">
+										<label><input type="checkbox" value="">Viernes</label>
+										</div>
+										<div class="from-group ">
+										<label><input type="checkbox" value="">Sábado</label>
+										</div>
+										<div class="from-group ">
+										<label><input type="checkbox" value="">Domingo</label>
+										</div>
+									</div>
+								<div class="col-md-2"></div>
+							</div>
+							<br>
+							<div class="row">
+							    <div class="col-md-3"></div>
+								<div class="col-md-3">
+									<input class="btn btn-danger" type="reset" value="Cancelar">
+								</div>
+								<div class="col-md-3">
+  									<input class="btn btn-success" type="submit" value="Guardar">
+								</div>
+                                <div class="col-md-3"></div>
+							</div>
+
+
+						</form>
+					</div>
+
+				</div>
+                 <!-- Configuracion-->
+				<div role="tab-pane" class="tab-pane" id="configuracion">
+
+					<div role="tab-pane" class="tab-pane" id="rides">
+
+						<h3> Configuración</h3>
+						<!--Migajas de pan-->
+						<div class="tab-panel" id="migas">
+							<ol class="breadcrumb">
+							<li><a href="#">Mi Cuenta</a></li>
+								<li><a href="#">Rides</a></li>
+								<li class="active">Configuración</li>
+							</ol>
 						</div>
-						<div role="tab-pane" class="tab-pane" id="profile">
 
-							<h1> Profile</h1>
-
+						<!--Panel-->
+						<div class="well">
 						</div>
-						<div role="tab-pane" class="tab-pane" id="configuracion">
 
-							<h1> configuracion</h1>
+					</div>
 
-						</div>
-						.
-				    </div>
-					
-					
 				</div>
 
-			
-		</div>
-	</section>
+			</div>
 
-	<script src="../js/jquery.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/script.js"></script>
+		</div>
+
+
+	</div>
+</section>
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/script.js"></script>
 </body>
 </html>

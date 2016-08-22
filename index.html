@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  lang="en"  ng-app="Datos">
+<html  lang="en"  ng-app="App">
 <head>
 	<meta charset="UTF-8">
 	<title>BuscandoRide</title>
@@ -7,7 +7,6 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
 
 </head>
 
@@ -68,34 +67,21 @@
 									<input  ng-model="usuarioNuevo.usuario" class="form-control" type="text"  autofocus="" required="" placeholder="Usuario">
 									<br>
 									<input ng-model="usuarioNuevo.contrasena" class="form-control" type="contraseña" required=""  placeholder="Contraseña">
+                                    <br>
+                                    <div class="row">
+                                        <h5 class="col-xs-6 text-left"><small>Listo?</small></h5>
+                                        <a class="col-xs-6  btn  btn-sm go-black" type="submit" href="#/dashboard"> Iniciar Sesión</a>
+                                    </div>
+                                    <div class="row">
+                                        <h5 class="col-xs-6 text-left"><small class="text-danger">No eres un Usuario?</small></h5>
+                                        <button href="#register" type="button" class="col-xs-6 btn btn-sm go-black " data-dismiss="modal"
+                                                data-toggle="modal"> Registrarse</button>
+
+                                    </div>
 								</form>
 							</div>
 						</div>
 					</div>
-                    <div>
-
-                        <div class="row">
-                            <div class="checkbox col-xs-6 text-right">
-                                <label>
-                                    <input type="checkbox" value="recordarme">
-                                    Recordarme
-                                </label>
-                            </div>
-                            <div class="col-xs-6 ">
-                                <button class="btn  btn-sm go-black" type="submit">Iniciar Sesión</button>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6 text-right">
-                                <h5>No ere un Usuario?</h5>
-                            </div>
-                            <div class="col-xs-6">
-                                <button href="#register" type="button" class="btn btn-sm go-black" data-dismiss="modal" data-toggle="modal">Registrar</button>
-
-                            </div>
-
-                        </div>
-                    </div>
 				</div>
 			</div>
 		</div>
@@ -176,49 +162,11 @@
             <!-- Page Content -->
             <div id="page-content-wrapper">
                 <div class="container-fluid">
-
                     <a href="#menu-toggle" class="btn btn-sm glyphicon glyphicon-collapse-down" id="menu-toggle"></a>
                     <br>
-
                     <br>
-                    <!--Tabla de Resultados-->
-                    <div  id="busqueda" class="panel" >
-                        <table class="table table-striped">
-                            <thead>
-                            <tr>
-                                <th>Usuario</th>
-                                <th>Salida</th>
-                                <th>Destino</th>
-                                <th>Vista</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td id="td1"></td>
-                                <td id="salida1"></td>
-                                <td id="destino1"></td>
-                                <td id="ver1"></td>
-                            </tr>
-                            <tr>
-                                <td id="td2"></td>
-                                <td id="salida2"></td>
-                                <td id="destino2"></td>
-                                <td id="ver2"></td>
-                            </tr>
-                            <tr>
-                                <td id="td3"></td>
-                                <td id="salida3"></td>
-                                <td id="destino3"></td>
-                                <td id="ver3"></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <ul>
-                        <li ng-repeat="usuario in usuarios" class="text-success">
-                            {{usuario.usuario}}
-                        </li>
-                    </ul>
+                    <div ng-view></div>
+
                 </div>
             </div>
             <!-- /#page-content-wrapper -->
@@ -229,9 +177,10 @@
 	</section>
     <script src="js/angular.min.js"></script>
     <script src="js/angular-local-storage.min.js"></script>
+    <script src="js/angular_route.min.js"></script>
     <script src="js/ng-script.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/script.js"></script>
-</body ng-controller="DatosController">
+</body>
 </html>

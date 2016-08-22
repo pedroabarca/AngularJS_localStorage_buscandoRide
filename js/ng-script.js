@@ -1,4 +1,17 @@
-angular.module("Datos",["LocalStorageModule"])
+angular.module("App",["ngRoute","LocalStorageModule"])
+    .config(function ($routeProvider) {
+        $routeProvider
+            .when("/",{
+                templateUrl:"pages/inicio.html"
+        })
+            .when("/dashboard",{
+                templateUrl:"pages/dashboard.html"
+            })
+            .otherwise({
+                redirectTo:"/"
+            });
+    })
+
     .controller("DatosController",function ($scope,localStorageService) {
 
 

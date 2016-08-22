@@ -1,60 +1,196 @@
 
-body{
-	background-image: url("../images/carpool_NY.png");
-	 background-size: cover;
-	background-attachment: fixed;
-	margin-right: 0px;
-}
-.jumbotron{
-	
-	margin-bottom: 0px;
-	font-family: Georgia;
-}
-.margin{
-	margin-top: 100px;
-    margin-left: 210px;
+body {
+    background-image: url("../images/carpool_NY.png");
+    background-size: cover;
+    background-attachment: fixed;
+    margin-right: 0px;
+    overflow-x: hidden;
+
 }
 
-.margin2{
-	margin-top: 20px;
-	margin-left: 94px;
+.principal-container {
+    position: static;
 }
-.panel{
-	border: 1px solid;
-	margin-bottom: 100px;
+
+.jumbotron {
+    background: black;
+    padding: 1%;
+    margin-bottom: 0px;
+    font-family: Georgia;
 }
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.navbar-inverse {
+    background-color: black;
+    border-color: black;
+}
+
 .panel > .panel-heading {
 
-	background: #494949;
-	color: #fff;
-}
-.table-bordered{
-
-	border: 1px solid;
-}
-.table thead th{
-	background: #494949;
-	color: white;
+    background: #494949;
+    color: #fff;
 }
 
-.text-brown{
-	color: #e07b79;
+.table-bordered {
+
+    border: 1px solid;
 }
 
-.navbar-right{
-margin-right: 200px;
+
+.table thead th {
+    background: black;
+    color: white;
 }
-#tablew{
-	border: 1px solid grey;
+
+.text-brown {
+    color: #e07b79;
 }
-.go-gray{
-background-color: #494949;
-color: white;
+
+#tablew {
+    border: 1px solid grey;
 }
-hr{
-	color: #f00;
-background-color: black;
-height: 2px;
-margin-top: 50px;
-margin-bottom: 50px;
+
+.go-black {
+    background-color: black;
+    color: white;
+}
+
+hr {
+    color: #f00;
+    background-color: black;
+    height: 2px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#search:focus, #search:hover {
+    color: white;
+    background: red;
+}
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: absolute;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: black;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 272px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 270px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 16px;
+    line-height: 60px;
+
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+#menu-toggle {
+    background: black;
+    color: white;
+}
+
+@media (min-width: 768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 272px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
 }

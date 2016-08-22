@@ -1,54 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html  lang="en"  ng-app="Datos">
 <head>
 	<meta charset="UTF-8">
 	<title>BuscandoRide</title>
+
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+
 </head>
 
-<body >
+<body ng-controller="DatosController" >
 
-	<header class="jumbotron">
+	<header class="">
+        <!--Barra de navegacion-->
+        <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle btn-success" data-toggle="collapse" data-target="#miNav">
+                    <span class="caret"></span>
+
+                </button>
+                <a href="#" class="navbar-brand">BuscandoRide.com</a>
+            </div>
+            <div class="collapse navbar-collapse" id="miNav">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                    <li class="dropdown ">
+                        <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button">
+                            <span class="glyphicon glyphicon-user" ></span> Usuario
+                        </a>
+                        <ul class="dropdown-menu " role="menu">
+                            <li><a href="#login" class="btn" data-toggle="modal">Iniciar Sesión</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#register" class="btn" data-toggle="modal">Registrarse </a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
 		
-		<div class="text-center text-danger row">
+		<div class="jumbotron text-center">
 			<img src="images/carpool.png" height="100" width="100">
 			<h1>Bienvenido a <i>BuscandoRide.com</i></h1>
 		</div>
-	</header>
-	<!--Barra de navegacion-->
-	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-		<div class="navbar-header">
-			<a href="#" class="navbar-brand">BuscandoRide.com</a>
-		</div>
-		<div class="collapse navbar-collapse ">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="index.html">Home</a></li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
-						Usuario <span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu " role="menu">
-						<li><a href="#login" class="btn" data-toggle="modal">Iniciar Sesión</a></li>
 
-						<li class="divider"></li>
-						<li><a href="#register" class="btn" data-toggle="modal"> Registrarse </a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-	</nav>
-	<!--contenedor principal-->
-	<section class="main container">
-		
+	</header>
+	<!--principal section -->
+	<section class=" principal-container">
 		<div class="modal fade" id="login" role="dialog">
 			<!-- Modal content: login-->
 			<div class="modal-dialog">
 				<div class="modal-content ">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<button type="button" class="close " data-dismiss="modal">&times;</button>
 						<h4 class="modal-title">Iniciar Sesión</h4>
 					</div>
 					<div class="modal-body">
@@ -58,142 +64,170 @@
 
 							<div class="col-md-6">
 								<form method="post" action="" class="">
-									<label class="sr-only" for="inCorreo">
-										Correo
-									</label>
-									<input id="inCorreo" class="form-control" type="email" autofocus="" required="" placeholder="Correo">
+
+									<input  ng-model="usuarioNuevo.usuario" class="form-control" type="text"  autofocus="" required="" placeholder="Usuario">
 									<br>
-									<label class="sr-only" for="inContra">
-										Contraseña
-									</label>
-									<input id="inContra" class="form-control" type="contraseña" required="" placeholder="Contraseña">
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" value="recordarme">
-											Recordame
-										</label>
-									</div>
-									<a href="pages/dashboard.html" class="btn btn-primary text-center" type="submit">
-										Iniciar Sesión
-									</a>
+									<input ng-model="usuarioNuevo.contrasena" class="form-control" type="contraseña" required=""  placeholder="Contraseña">
 								</form>
 							</div>
 						</div>
 					</div>
-					<div class="modal-footer">
-						<button href="#register" type="button" class="btn btn-success pull-left" data-dismiss="modal" data-toggle="modal">Registrar</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-					</div>
+                    <div>
+
+                        <div class="row">
+                            <div class="checkbox col-xs-6 text-right">
+                                <label>
+                                    <input type="checkbox" value="recordarme">
+                                    Recordarme
+                                </label>
+                            </div>
+                            <div class="col-xs-6 ">
+                                <button class="btn  btn-sm go-black" type="submit">Iniciar Sesión</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 text-right">
+                                <h5>No ere un Usuario?</h5>
+                            </div>
+                            <div class="col-xs-6">
+                                <button href="#register" type="button" class="btn btn-sm go-black" data-dismiss="modal" data-toggle="modal">Registrar</button>
+
+                            </div>
+
+                        </div>
+                    </div>
 				</div>
 			</div>
 		</div>
 		<div class="modal fade" id="register" role="dialog">
 			<!-- Modal content: registro-->
 			<div class="modal-dialog">
-				<div class="modal-content">
+				<div class="modal-content" >
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h4 class="modal-title">Registrarse</h4>
 					</div>
 					<div class="modal-body">
 						<div class="row">
-							<div class="col-md-3">
-							</div>
+							<div class="col-md-3"></div>
+                            <div class="col-md-6 text-center">
+								<form ng-submit="validar()">
+									<input ng-model = "usuarioNuevo.nombre" class="form-control" type="text" autofocus="" required="" placeholder="Nombre">
+									<br>
+									<input ng-model = "usuarioNuevo.apellido" class="form-control" type="text" required="" placeholder="Apellido">
+									<br>
+									<input ng-model = "usuarioNuevo.telefono" class="form-control" type="text" required="" placeholder="Telefono (XXX) XXXX-XXXX"">
+									<br>
+									<input ng-model = "usuarioNuevo.usuario" class="form-control" type="text" required="" placeholder="Nombre Usuario">
+									<br>
+									<input ng-model = "usuarioNuevo.contrasena" class="form-control" type="password" required="" placeholder="Contraseña">
+                                    <br>
+                                    <input ng-model = "contra" class="form-control" type="password" required="" placeholder="Repetir Contraseña">
+                                    <br>
+                                    <div class="row">
+                                        <h5 class="col-xs-6 text-left"><small>Listo?</small></h5>
+                                        <button class="col-xs-6  btn  btn-sm go-black" type="submit">Registrar</button>
+                                    </div>
+                                    <div class="row">
+                                        <h5 class="col-xs-6 text-left"><small class="text-danger">Ya eres un Usuario?</small></h5>
+                                        <button href="#login" type="button" class="col-xs-6 btn btn-sm go-black " data-dismiss="modal"
+                                                    data-toggle="modal"> Iniciar Sesión</button>
 
-							<div class="col-md-6 text-center">
-								<form method="post" action="" class="">
-									<label class="sr-only" for="inCorreo">
-										Correo
-									</label>
-									<input id="nombre" class="form-control" type="text" autofocus="" required="" placeholder="Nombre">
-									<br>
-									<label class="sr-only" for="inContra">
-										Contraseña
-									</label>
-									<input id="apellido" class="form-control" type="text" required="" placeholder="Apellido">
-									<br>
-									<input id="telefono" class="form-control" type="text" required="" placeholder="Telefono">
-									<br>
-									<input id="username" class="form-control" type="text" required="" placeholder="Nombre Usuario">
-									<br>
-									<input id="pass" class="form-control" type="password" required="" placeholder="Contraseña">
-									<br>
-
-
-									<button class="btn btn-primary text-center" type="submit">
-										Registrar
-									</button>
+                                    </div>
 								</form>
 							</div>
+                            <div class="col-md-3">
+                            </div>
 						</div>
-					</div>
-					<div class="modal-footer">
-						<button href="#login" type="button" class="btn btn-success pull-left" data-dismiss="modal"
-						data-toggle="modal"> Iniciar Sesión</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
 					</div>
 				</div>
 			</div>
 		</div>
+        <div id="wrapper">
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            ¿Buscando un Ride? <small class="text-danger">Probá Suerte!</small>
+                        </a>
+                    </li>
+                    <li class="form-group has-success">
+                        <label for="salida" class=" sr-only">salida</label>
+                        <input id="salida" type="text"  placeholder="salida" class="form-control" name="salida">
+                    </li>
+                    <li class="form-group has-success">
+                        <label for="destino" class="sr-only">destino</label>
+                        <input id="destino" type="text" id="destino" placeholder="destino" class="form-control" name="destino">
+                    </li>
+                    <li>
+                        <a href="#busqueda" id="search" type="button" class="form-control btn btn-danger glyphicon glyphicon-search" >
+                        </a>
+                    </li>
 
-		<!--Panel Buscador de Ride-->		
-		<div class="panel margin" style="width:700px; height: 150px;">
-			<div class="panel-heading">¿Buscando un Ride?  <small class="text-danger">Probá Suerte!</small></div>
-			<div class="panel-body">
-				<form action="" class="form-inline margin2" name="formulario">
-					<div class="form-group has-success">
-						<label for="salida" class="sr-only">salida</label>
-						<input id="salida" type="text"  placeholder="salida" class="form-control" name="salida">
-					</div>
-					<div class="form-group has-warning">
-						<label for="destino" class="sr-only">destino</label>
-						<input id="destino" type="text" id="destino" placeholder="destino" class="form-control" name="destino">
-					</div>
+                </ul>
+            </div>
+            <!-- /#sidebar-wrapper -->
 
-					<a href="#busqueda" id="add" type="button" class="btn btn-danger" >
-						<span class="glyphicon glyphicon-search"></span>
-					</a>
-				</form>
-			</div>
-		</div>
-		
-		<!--Tabla de Resultados-->
-		<div  id="busqueda" class="panel" >
-			<table class="table table-striped ">
-				<thead>
-					<tr>
-						<th>Usuario</th>
-						<th>Salida</th>
-						<th>Destino</th>
-						<th>Vista</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td id="td1"></td>
-						<td id="salida1"></td>
-						<td id="destino1"></td>
-						<td id="ver1"></td>
-					</tr>
-					<tr>
-						<td id="td2"></td>
-						<td id="salida2"></td>
-						<td id="destino2"></td>
-						<td id="ver2"></td>
-					</tr>
-					<tr>
-						<td id="td3"></td>
-						<td id="salida3"></td>
-						<td id="destino3"></td>
-						<td id="ver3"></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+
+                    <a href="#menu-toggle" class="btn btn-sm glyphicon glyphicon-collapse-down" id="menu-toggle"></a>
+                    <br>
+
+                    <br>
+                    <!--Tabla de Resultados-->
+                    <div  id="busqueda" class="panel" >
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Usuario</th>
+                                <th>Salida</th>
+                                <th>Destino</th>
+                                <th>Vista</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td id="td1"></td>
+                                <td id="salida1"></td>
+                                <td id="destino1"></td>
+                                <td id="ver1"></td>
+                            </tr>
+                            <tr>
+                                <td id="td2"></td>
+                                <td id="salida2"></td>
+                                <td id="destino2"></td>
+                                <td id="ver2"></td>
+                            </tr>
+                            <tr>
+                                <td id="td3"></td>
+                                <td id="salida3"></td>
+                                <td id="destino3"></td>
+                                <td id="ver3"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul>
+                        <li ng-repeat="usuario in usuarios" class="text-success">
+                            {{usuario.usuario}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /#page-content-wrapper -->
+
+        </div>
+        <!-- /#wrapper -->
 
 	</section>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-local-storage.min.js"></script>
+    <script src="js/ng-script.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 	<script src="js/script.js"></script>
 </body>
 </html>

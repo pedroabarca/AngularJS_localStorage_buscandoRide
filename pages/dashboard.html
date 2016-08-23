@@ -1,6 +1,6 @@
 
 		<!--panel contenedor de los taps: cuenta, rides, configuración-->
-		<div class="container-fluid panel">
+		<div ng-controller="DashboardController" class="container-fluid panel">
 			<nav class="row">
 				<!-- Nav tabs: cuenta, rides, config -->
 				<div class="col-md-8">
@@ -11,7 +11,7 @@
 					</ul>
 				</div>
 				<div class="col-md-4 text-right">
-					<a href="#" class="btn btn-lg disabled">Bienvenido <span id="user">Barroyo </span><img src="../images/profile.ico"></a>
+					<a href="#" class="btn btn-lg disabled">Bienvenido <span id="user">{{}} </span><img src="../images/profile.ico"></a>
 				</div>
 			</nav>
 			<!-- Contenedor de los tabs-pane -->

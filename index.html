@@ -1,207 +1,242 @@
 <!DOCTYPE html>
-<html  lang="en"  ng-app="App">
+<html lang="en" ng-app="App">
 <head>
-	<meta charset="UTF-8">
-	<title>BuscandoRide</title>
+    <meta charset="UTF-8">
+    <title>BuscandoRide</title>
 
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
 </head>
 
-<body ng-controller="DatosController" >
+<body ng-controller="DatosController">
 
-	<header class="">
-        <!--Barra de navegacion-->
-        <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle btn-success" data-toggle="collapse" data-target="#miNav">
-                    <span class="caret"></span>
+<header class="">
+    <!--Barra de navegacion-->
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle btn-success" data-toggle="collapse" data-target="#miNav">
+                <span class="caret"></span>
 
-                </button>
-                <a class="navbar-brand">BuscandoRide.com</a>
-            </div>
-            <div class="collapse navbar-collapse" id="miNav">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#inicio"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-                    <li class="dropdown" ng-show="!usuarioActivo" >
-                        <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button">
-                            <span class="glyphicon glyphicon-user" ></span> Usuario
-                        </a>
-                        <ul class="dropdown-menu " role="menu">
-                            <li><a href="#login" class="btn" data-toggle="modal">Iniciar Sesión</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#register" class="btn" data-toggle="modal">Registrarse </a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav">
+            </button>
+            <a class="navbar-brand">BuscandoRide.com</a>
+        </div>
+        <div class="collapse navbar-collapse" id="miNav">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#inicio"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                <li class="dropdown" ng-show="!usuarioActivo">
+                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button">
+                        <span class="glyphicon glyphicon-user"></span> Usuario
+                    </a>
+                    <ul class="dropdown-menu " role="menu">
+                        <li><a href="#login" class="btn" data-toggle="modal">Iniciar Sesión</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#register" class="btn" data-toggle="modal">Registrarse </a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
                 <li ng-show="usuarioActivo" class=" dropdown">
                     <a class="dropdown-toggle text-danger " data-toggle="dropdown" role="button">
-                        <span class="glyphicon glyphicon-user" ></span> {{usuarioActivo.nombre}}
+                        <span class="glyphicon glyphicon-user"></span> {{usuarioActivo.nombre}}
                     </a>
-                    <ul class="dropdown-menu"  role="menu">
-                        <li><a href="#dashboard" class="btn" >Perfil</a></li>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#dashboard" class="btn">Perfil</a></li>
                         <li class="divider"></li>
                         <li><a href="#" ng-click="cerrarSesion()" class="btn">Cerrar Sesión </a></li>
                     </ul>
                 </li>
-                </ul>
-            </div>
-        </nav>
-		
-		<div class="jumbotron text-center">
-			<img src="images/carpool.png" height="100" width="100">
-			<h1>Bienvenido a <i>BuscandoRide.com</i></h1>
-		</div>
+            </ul>
+        </div>
+    </nav>
 
-	</header>
-	<!--principal section -->
-	<section class=" principal-container">
-		<div class="modal fade" id="login" role="dialog">
-			<!-- Modal content: login-->
-			<div class="modal-dialog">
-				<div class="modal-content ">
-					<div class="modal-header">
-						<button type="button" class="close " data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Iniciar Sesión</h4>
-					</div>
-					<div class="modal-body">
-						<div class="row">
-							<div class="col-md-3">
-							</div>
+    <div class="jumbotron text-center">
+        <img src="images/carpool.png" height="100" width="100">
+        <h1>Bienvenido a <i>BuscandoRide.com</i></h1>
+    </div>
 
-							<div class="col-md-6">
-								<form ng-submit="validarLogin()">
+</header>
+<!--principal section -->
+<section class=" principal-container">
+    <div class="modal fade" id="login" role="dialog">
+        <!-- Modal content: login-->
+        <div class="modal-dialog">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <button type="button" class="close " data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Iniciar Sesión</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                        </div>
 
-									<input pattern="[A-Za-z0-9]{4,10}" title="Más de 4 y menos de 10 Letras y/o Números" ng-model = "usuarioNuevo.usuario"
-                                           class="form-control" type="text"  autofocus="" required placeholder="Usuario"><span class="small">{{mensaje.usuario}}</span>
-									<br>
-									<input pattern="[A-Za-z0-9]{6,10}" title="Números y/o Letras" ng-model="usuarioNuevo.contrasena"
-                                           class="form-control" type="password" required placeholder="Contraseña"><span class="small">{{mensaje.contra}}</span>
-                                    <br>
-                                    <div class="row">
-                                        <h5 class="col-xs-6 text-left"><small>Listo?</small></h5>
-                                        <button type="submit" class="col-xs-6  btn  btn-sm go-black"  >Iniciar Sesión</button>
-                                    </div>
-                                    <div class="row">
-                                        <h5 class="col-xs-6 text-left"><small class="text-danger">No eres un Usuario?</small></h5>
-                                        <button href="#register" type="button" class="col-xs-6 btn btn-sm go-black " data-dismiss="modal"
-                                                data-toggle="modal"> Registrarse</button>
+                        <div class="col-md-6">
+                            <form ng-submit="validarLogin()">
 
-                                    </div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="modal fade" id="register" role="dialog">
-			<!-- Modal content: registro-->
-			<div class="modal-dialog">
-				<div class="modal-content" >
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Registrarse</h4>
-					</div>
-					<div class="modal-body">
-						<div class="row">
-							<div class="col-md-3"></div>
-                            <div class="col-md-6 text-center">
-								<form name="formregistro" ng-submit="validarRegistro()">
-									<input name="nombre" pattern="[A-Za-z]{2,12}" ng-model = "usuarioNuevo.nombre" class="form-control" type="text" autofocus required
-                                           placeholder="Nombre">
-									<br>
-									<input name="apellido" pattern="[A-Za-z]{2,12}" ng-model = "usuarioNuevo.apellido" class="form-control" type="text"
-                                           required placeholder="Apellido">
-									<br>
-									<input name="telefono"pattern="[0-9]{8}" ng-model = "usuarioNuevo.telefono" class="form-control" type="text" required=""
-                                           placeholder="Telefono XXXXXXXX"><span class="small">{{mensaje.telefono}}</span>
-									<br>
-									<input name="usuario" pattern="[A-Za-z0-9]{4,10}" title="Más de 4 y menos de 10 Letras y/o Números" ng-model = "usuarioNuevo.usuario"
-                                           class="form-control" type="text" required placeholder="Nombre Usuario"><span class="small">{{mensaje.usuario}}</span>
-									<br>
-									<input name="contrasena" pattern="[A-Za-z0-9]{6,10}" title="Números y/o Letras" ng-minlength="6" ng-maxlength="10" ng-model = "usuarioNuevo.contrasena"
-                                           class="form-control" type="password" required placeholder="Contraseña"><span class="small">{{mensaje.contra}}</span>
-                                    <span ng-show="formregistro.contrasena.$error.minlength">Mínimo 6 Caracteres</span>
-                                    <span ng-show="formregistro.contrasena.$error.maxlength">Máximo 10 Caracteres</span>
-                                    <br>
-                                    <input name="contra" pattern="[A-Za-z0-9]{6,10}" title="Números y/o Letras" ng-minlength="6" ng-maxlength="10"
-                                           ng-model = "contra" class="form-control" type="password" required="" placeholder="Repetir Contraseña">
-                                    <span ng-show="formregistro.contra.$error.minlength">Mínimo 6 Caracteres</span>
-                                    <span ng-show="formregistro.contra.$error.maxlength">Máximo 10 Caracteres</span>
-                                    <br>
-                                    <div class="row">
-                                        <h5 class="col-xs-6 text-left"><small>Listo?</small></h5>
-                                        <button class="col-xs-6  btn  btn-sm go-black" type="submit">Registrar</button>
-                            </div>
-                                    <div class="row">
-                                        <h5 class="col-xs-6 text-left"><small class="text-danger">Ya eres un Usuario?</small></h5>
-                                        <button href="#login" type="button" class="col-xs-6 btn btn-sm go-black " data-dismiss="modal"
-                                                    data-toggle="modal"> Iniciar Sesión</button>
+                                <input pattern="[A-Za-z0-9]{4,10}" title="Más de 4 y menos de 10 Letras y/o Números"
+                                       ng-model="usuarioNuevo.usuario"
+                                       class="form-control" type="text" autofocus="" required
+                                       placeholder="Usuario"><span class="small">{{mensaje.usuario}}</span>
+                                <br>
+                                <input pattern="[A-Za-z0-9]{6,10}" title="Números y/o Letras"
+                                       ng-model="usuarioNuevo.contrasena"
+                                       class="form-control" type="password" required placeholder="Contraseña"><span
+                                    class="small">{{mensaje.contra}}</span>
+                                <br>
+                                <div class="row">
+                                    <h5 class="col-xs-6 text-left">
+                                        <small>Listo?</small>
+                                    </h5>
+                                    <button type="submit" class="col-xs-6  btn  btn-sm go-black">Iniciar Sesión</button>
+                                </div>
+                                <div class="row">
+                                    <h5 class="col-xs-6 text-left">
+                                        <small class="text-danger">No eres un Usuario?</small>
+                                    </h5>
+                                    <button href="#register" type="button" class="col-xs-6 btn btn-sm go-black "
+                                            data-dismiss="modal"
+                                            data-toggle="modal"> Registrarse
+                                    </button>
 
-                                    </div>
-								</form>
-							</div>
-                            <div class="col-md-3">
-                            </div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-        <div id="wrapper">
-            <!-- Sidebar -->
-
-            <div id="sidebar-wrapper">
-                <ul class="sidebar-nav">
-                    <br>
-                    <li class="sidebar-brand">
-                        <a>
-                            ¿Buscando un Ride? <small class="text-danger">Probá Suerte!</small>
-                        </a>
-                    </li>
-                    <li class="form-group has-success">
-                        <label  class=" sr-only">salida</label>
-                        <input  type="text" ng-model="filtro.salida" placeholder="salida" class="form-control" >
-                    </li>
-                    <li class="form-group has-success">
-                        <label  class="sr-only">destino</label>
-                        <input  type="text" ng-model="filtro.destino" placeholder="destino" class="form-control" >
-                    </li>
-                    <li class="form-group has-success">
-                        <label  class="sr-only">usuario</label>
-                        <input  type="text" ng-model="filtro.usuario" placeholder="usuario" class="form-control" >
-                    </li>
-
-                </ul>
-            </div>
-            <!-- /#sidebar-wrapper -->
-
-            <!-- Page Content -->
-            <div id="page-content-wrapper">
-                <div class="container-fluid">
-                    <a href="#menu-toggle" class="btn btn-sm glyphicon glyphicon-collapse-down" id="menu-toggle"></a>
-                    <br>
-                    <br>
-                    <div ng-view></div>
-
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- /#page-content-wrapper -->
-
         </div>
-        <!-- /#wrapper -->
+    </div>
+    <div class="modal fade" id="register" role="dialog">
+        <!-- Modal content: registro-->
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Registrarse</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6 text-center">
+                            <form name="formregistro" ng-submit="validarRegistro()">
+                                <input name="nombre" pattern="[A-Za-z]{2,12}" ng-model="usuarioNuevo.nombre"
+                                       class="form-control" type="text" autofocus required
+                                       placeholder="Nombre">
+                                <br>
+                                <input name="apellido" pattern="[A-Za-z]{2,12}" ng-model="usuarioNuevo.apellido"
+                                       class="form-control" type="text"
+                                       required placeholder="Apellido">
+                                <br>
+                                <input name="telefono" pattern="[0-9]{8}" ng-model="usuarioNuevo.telefono"
+                                       class="form-control" type="text" required=""
+                                       placeholder="Telefono XXXXXXXX"><span class="small">{{mensaje.telefono}}</span>
+                                <br>
+                                <input name="usuario" pattern="[A-Za-z0-9]{4,10}"
+                                       title="Más de 4 y menos de 10 Letras y/o Números" ng-model="usuarioNuevo.usuario"
+                                       class="form-control" type="text" required placeholder="Nombre Usuario"><span
+                                    class="small">{{mensaje.usuario}}</span>
+                                <br>
+                                <input name="contrasena" pattern="[A-Za-z0-9]{6,10}" title="Números y/o Letras"
+                                       ng-minlength="6" ng-maxlength="10" ng-model="usuarioNuevo.contrasena"
+                                       class="form-control" type="password" required placeholder="Contraseña"><span
+                                    class="small">{{mensaje.contra}}</span>
+                                <span ng-show="formregistro.contrasena.$error.minlength">Mínimo 6 Caracteres</span>
+                                <span ng-show="formregistro.contrasena.$error.maxlength">Máximo 10 Caracteres</span>
+                                <br>
+                                <input name="contra" pattern="[A-Za-z0-9]{6,10}" title="Números y/o Letras"
+                                       ng-minlength="6" ng-maxlength="10"
+                                       ng-model="contra" class="form-control" type="password" required=""
+                                       placeholder="Repetir Contraseña">
+                                <span ng-show="formregistro.contra.$error.minlength">Mínimo 6 Caracteres</span>
+                                <span ng-show="formregistro.contra.$error.maxlength">Máximo 10 Caracteres</span>
+                                <br>
+                                <div class="row">
+                                    <h5 class="col-xs-6 text-left">
+                                        <small>Listo?</small>
+                                    </h5>
+                                    <button class="col-xs-6  btn  btn-sm go-black" type="submit">Registrar</button>
+                                </div>
+                                <div class="row">
+                                    <h5 class="col-xs-6 text-left">
+                                        <small class="text-danger">Ya eres un Usuario?</small>
+                                    </h5>
+                                    <button href="#login" type="button" class="col-xs-6 btn btn-sm go-black "
+                                            data-dismiss="modal"
+                                            data-toggle="modal"> Iniciar Sesión
+                                    </button>
 
-	</section>
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular-local-storage.min.js"></script>
-    <script src="js/angular_route.min.js"></script>
-    <script src="js/ng-script.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-	<script src="js/script.js"></script>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper">
+        <!-- Sidebar -->
+
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <br>
+                <li class="sidebar-brand">
+                    <a>
+                        ¿Buscando un Ride?
+                        <small class="text-danger">Probá Suerte!</small>
+                    </a>
+                </li>
+                <li class="form-group has-success">
+                    <label class=" sr-only">salida</label>
+                    <input type="text" ng-model="filtro.salida" placeholder="salida" class="form-control">
+                </li>
+                <li class="form-group has-success">
+                    <label class="sr-only">destino</label>
+                    <input type="text" ng-model="filtro.destino" placeholder="destino" class="form-control">
+                </li>
+                <li class="form-group has-success">
+                    <label class="sr-only">usuario</label>
+                    <input type="text" ng-model="filtro.usuario" placeholder="usuario" class="form-control">
+                </li>
+
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <a href="#menu-toggle" class="btn btn-sm glyphicon glyphicon-collapse-down" id="menu-toggle"></a>
+                <br>
+                <br>
+                <div ng-view>
+
+                </div>
+                <div>
+
+                </div>
+                <div id="googleMap" style="width:350px;height:280px;"></div>
+                
+
+
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+</section>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-local-storage.min.js"></script>
+<script src="js/angular_route.min.js"></script>
+<script src="js/ng-script.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

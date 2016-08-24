@@ -1,5 +1,5 @@
 <!--Tabla de Resultados-->
-<div  id="busqueda" class="panel" >
+<div id="busqueda" class="panel">
     <table class="table table-striped">
         <thead>
         <tr>
@@ -10,11 +10,12 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat ="ride in rides | filter: filtro ">
+        <tr ng-repeat="ride in rides | filter: filtro ">
             <td>{{ride.usuario}}</td>
             <td>{{ride.salida }}</td>
             <td>{{ride.destino}}</td>
-            <td><a ng-show="usuarioActivo" class="btn-sm go-black">Ver</a><span ng-show="!usuarioActivo">Inicia Sesíon para Ver</span></td>
+            <td><a ng-show="usuarioActivo" class="btn-sm go-black">Ver</a><span ng-show="!usuarioActivo">Inicia Sesíon para Ver</span>
+            </td>
         </tr>
     </table>
 </div>

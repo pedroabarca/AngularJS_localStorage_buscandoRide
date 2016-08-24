@@ -10,24 +10,11 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td id="td1"></td>
-            <td id="salida1"></td>
-            <td id="destino1"></td>
-            <td id="ver1"></td>
+        <tr ng-repeat ="ride in rides | filter: filtro ">
+            <td>{{ride.usuario}}</td>
+            <td>{{ride.salida }}</td>
+            <td>{{ride.destino}}</td>
+            <td><a ng-show="usuarioActivo" class="btn-sm go-black">Ver</a><span ng-show="!usuarioActivo">Inicia Sesíon para Ver</span></td>
         </tr>
-        <tr>
-            <td id="td2"></td>
-            <td id="salida2"></td>
-            <td id="destino2"></td>
-            <td id="ver2"></td>
-        </tr>
-        <tr>
-            <td id="td3"></td>
-            <td id="salida3"></td>
-            <td id="destino3"></td>
-            <td id="ver3"></td>
-        </tr>
-        </tbody>
     </table>
 </div>
